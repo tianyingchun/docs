@@ -20,8 +20,8 @@ The docs used to show the guideline of react components, less css components
 │    └── views
 │
 ├── shared/
-│    ├── less # the less components click [this link](https://github.com/tianyingchun/less) get more detail
-│    └── react # the react componnets click [this link](https://github.com/tianyingchun/react) get more detail
+│    ├── less # the less components click `[this link](https://github.com/tianyingchun/less) get more detail`
+│    └── react # the react componnets click `[this link](https://github.com/tianyingchun/react) get more detail`
 ├── utils/ 
 ├── build.config.js (required by buildtool) copy and rename `complex.build.config.js` to `build.config.js`
 ├── gruntfile.js
