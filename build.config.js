@@ -35,7 +35,7 @@ module.exports = {
         entry: './docs/app/home/index.js',
         routes: './docs/app/home/routes.js',
         version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'docs/home/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'reactkits.js','common.js', 'docs/home/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/home/bundle.css${version}']
       },
       // ${subProjectName}, it contains multi module in business domain.
@@ -46,7 +46,7 @@ module.exports = {
         entry: './docs/app/react/index.js',
         routes: './docs/app/react/routes.js',
         version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'docs/react/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'common.js', 'docs/react/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/react/bundle.css${version}']
       },
       less: {
@@ -56,7 +56,7 @@ module.exports = {
         entry: './docs/app/less/index.js',
         routes: './docs/app/less/routes.js',
         version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'docs/less/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'common.js', 'docs/less/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/less/bundle.css${version}']
       }
     }

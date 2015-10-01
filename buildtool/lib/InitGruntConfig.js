@@ -110,10 +110,12 @@ var getWebpackConfig = function (grunt, mode, projects) {
       webpack.output.filename = jsBundlePath; //'[name].dev-hot.entry.js';
 
       var task_target_name = projectName + '.' + subProjectName;
+
+      console.log(task_target_name + ' entries: ', Object.keys(webpack.entry))
+
       result[task_target_name] = webpack;
       grunt.log.ok('webpack task target name: ', task_target_name);
       grunt.log.writeln('\n---------------------------------------------------');
-
     });
 
   });

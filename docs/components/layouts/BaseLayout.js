@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
-import { Layout, LayoutSplitter } from '../../../shared/react/components';
+import { Layout, LayoutSplitter } from '../../../shared/react/components/layout';
 import Header from '../header/Header';
 import meta from './meta';
 

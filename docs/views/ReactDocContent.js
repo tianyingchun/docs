@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
-import { Layout, LayoutSplitter, ScrollArea } from '../../shared/react/components';
-import { default as DraggableDemo } from '../../shared/react/components/draggable/demo';
+import ScrollArea from '../../shared/react/components/scrollarea';
+import { Layout, LayoutSplitter } from '../../shared/react/components/layout';
 import DocMenu from '../components/DocMenu';
-import ButtonDemo from '../../shared/react/components/button/demo';
-import LayoutDemo from '../../shared/react/components/layout/demo';
-import ScrollAreaDemo from '../../shared/react/components/scrollarea/demo';
-import MenuDemo from '../../shared/react/components/menu/demo';
-import MessageDemo from '../../shared/react/components/message/demo';
-import TagDemo from '../../shared/react/components/tags/demo';
-import SelectDemo from '../../shared/react/components/select/demo';
 
+import Demo from '../../shared/react/components/demo';
+
+const {
+  DraggableDemo,
+  ButtonDemo,
+  LayoutDemo,
+  ScrollAreaDemo,
+  MenuDemo,
+  MessageDemo,
+  TagDemo,
+  SelectDemo
+} = Demo;
+
+console.log(Demo)
 class ReactDocContent extends Component {
   state = {
     layoutWidth: 245,
@@ -18,30 +25,6 @@ class ReactDocContent extends Component {
     layoutHeightFlex: 400
   }
 
-  layoutChanged = (layoutInfo) => {
-    console.log('layoutInfo',layoutInfo)
-    let { layoutWidth, layoutHeight } = (layoutInfo || {});
-
-    let newState = {
-      width: layoutWidth || this.state.layoutWidth,
-      height: layoutHeight || this.state.layoutHeight
-    };
-    // performance
-    // directly reset scrollarea instead setState() on the hight level to re render all components.
-    // this.refs.leftContainer.resetScrollArea(newState);
-  }
-  layoutChangedFlex = (layoutInfo) => {
-    console.log('layoutInfoFlex',layoutInfo)
-    let { layoutWidth, layoutHeight } = (layoutInfo || {});
-
-    let newState = {
-      width: layoutWidth || this.state.layoutWidthFlex,
-      height: (layoutHeight || this.state.layoutHeightFlex)
-    };
-    if(this.refs.flexContainer) {
-      // this.refs.flexContainer.resetScrollArea(newState);
-    }
-  }
   getComponents (child) {
     // here cause of we used ScrollArea nested into Layout component,
     // we should not speficied the width and height for `ScrollArea`.
@@ -88,13 +71,13 @@ class ReactDocContent extends Component {
     }
     return (
       <Layout className="row" fill='container'>
-          <Layout layoutWidth={this.state.layoutWidth} onLayoutChanged={this.layoutChanged}>
+          <Layout layoutWidth={this.state.layoutWidth}>
             <ScrollArea ref="leftContainer" speed={0.8} amSize={'sm'} contentClassName="content">
               <DocMenu group={group} component={component}/>
             </ScrollArea>
           </Layout>
           <LayoutSplitter layoutWidth={11} />
-          <Layout layoutWidth='flex' onLayoutChanged={this.layoutChangedFlex}>
+          <Layout layoutWidth='flex'>
             {example}
           </Layout>
       </Layout>
