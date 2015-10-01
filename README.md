@@ -1,6 +1,7 @@
 docs
 ==========
 The docs used to show the guideline of react components, less css components
+``` 
 │
 ├── `buildtool` (the alias name of `webpack-buildtool`)
 ├──  docs 
@@ -26,3 +27,4 @@ The docs used to show the guideline of react components, less css components
 ├── gruntfile.js
 ├── isomorphic.js
 └── server.js
+```
