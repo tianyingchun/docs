@@ -76,29 +76,44 @@ class DockMenu extends Component {
               {this.getMenuTitle('按钮', 'Button')}
             </Link>
           </Menu.Item>
-          <Menu.Item key="draggable">
-            <Link to="/docs/react/elements/draggable" activeClassName="active">
-              {this.getMenuTitle('拖动部件', 'Draggable')}
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="message">
-            <Link to="/docs/react/elements/message" activeClassName="active">
-              {this.getMenuTitle('全局消息', 'Message')}
-            </Link>
-          </Menu.Item>
+
+        </SubMenu>
+
+        <SubMenu key="navs" title={this.getMenuTitle("导航相关","Navs")}>
           <Menu.Item key="menu">
             <Link to="/docs/react/elements/menu" activeClassName="active">
               {this.getMenuTitle('导航菜单', 'Menu')}
             </Link>
           </Menu.Item>
-          <Menu.Item key="tag">
-            <Link to="/docs/react/elements/tag" activeClassName="active">
-              {this.getMenuTitle('标签', 'Tag')}
+          <Menu.Item key="breadcrumb">
+            <Link to="/docs/react/navs/breadcrumb" activeClassName="active">
+              {this.getMenuTitle('面包屑', 'Breadcrumb')}
             </Link>
           </Menu.Item>
+        </SubMenu>
+
+        <SubMenu key="forms" title={this.getMenuTitle("表单相关","Forms")}>
           <Menu.Item key="select">
-            <Link to="/docs/react/elements/select" activeClassName="active">
+            <Link to="/docs/react/forms/select" activeClassName="active">
               {this.getMenuTitle('选择器', 'Select')}
+            </Link>
+          </Menu.Item>
+        </SubMenu>
+
+        <SubMenu key="interactive" title={this.getMenuTitle("交互组件","Interactive")}>
+          <Menu.Item key="draggable">
+            <Link to="/docs/react/interactive/draggable" activeClassName="active">
+              {this.getMenuTitle('拖动部件', 'Draggable')}
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="message">
+            <Link to="/docs/react/interactive/message" activeClassName="active">
+              {this.getMenuTitle('全局消息', 'Message')}
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="tag">
+            <Link to="/docs/react/interactive/tag" activeClassName="active">
+              {this.getMenuTitle('标签', 'Tag')}
             </Link>
           </Menu.Item>
         </SubMenu>

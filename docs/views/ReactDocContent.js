@@ -11,6 +11,7 @@ const {
   LayoutDemo,
   ScrollAreaDemo,
   MenuDemo,
+  BreadcrumbDemo,
   MessageDemo,
   TagDemo,
   SelectDemo
@@ -35,8 +36,11 @@ class ReactDocContent extends Component {
   }
   render () {
     let params = this.props.params;
+    let routes = this.props.routes;
+
     let { group, component, target } = params;
-    console.log('router params',params);
+    console.log('router info',params, routes);
+
     let example;
     switch (component) {
       case 'flexlayout':
@@ -55,6 +59,10 @@ class ReactDocContent extends Component {
 
       case 'menu':
         example = this.getComponents(<MenuDemo />);
+        break;
+
+      case 'breadcrumb':
+        example = this.getComponents(<BreadcrumbDemo />);
         break;
 
       case 'message':
