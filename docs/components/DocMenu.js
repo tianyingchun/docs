@@ -66,14 +66,48 @@ class DockMenu extends Component {
     let { docMenus, group, component } = this.props;
     isLoading = docMenus.isLoading ? true : false;
 
+    if (isLoading === true) {
+      return (
+        <span><Icon icon="spinner6" spin /> 加载Doc列表...</span>
+      );
+    }
+
     let openKeys = group ? [group] : this.state.openKeys;
     let selectedKeys = [this.state.current || component];
 
+    if (!docMenus.data) {
+      return <span>获取列表失败!</span>
+    }
+    let groups = docMenus.data.groups;
+
     return (
-      isLoading === true
-      ? <span><Icon icon="spinner6" spin /> 加载Doc列表...</span>
-      :
       <Menu onClick={this.handleClick} style={{width:'100%'}} defaultOpenKeys={openKeys} className="nav-left-dock " selectedKeys={selectedKeys} mode="inline">
+        {
+          groups.map((group) => {
+            return (
+              <SubMenu key={group.key} title={this.getMenuTitle(group.cName, group.enName)}>
+                {
+                  group.children.map((component)=> {
+                    return (
+                      <Menu.Item key={component.key}>
+                        <Link to={ "/docs/react/" + group.key + '/' + component.key} activeClassName="active">
+                          {this.getMenuTitle(component.cName, component.enName)}
+                        </Link>
+                      </Menu.Item>
+                    );
+                  })
+                }
+              </SubMenu>
+            );
+          })
+        }
+      </Menu>
+    );
+
+    return (
+      <Menu onClick={this.handleClick} style={{width:'100%'}} defaultOpenKeys={openKeys} className="nav-left-dock " selectedKeys={selectedKeys} mode="inline">
+
+
         <SubMenu key="layout" title={this.getMenuTitle("布局相关","Layout")}>
           <Menu.Item key="flexlayout">
             <Link to="/docs/react/layout/flexlayout" activeClassName="active">

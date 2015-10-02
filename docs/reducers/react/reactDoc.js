@@ -3,7 +3,7 @@ import { resolve, reject } from 'redux-simple-promise';
 
 let initialState = {
   isLoading: false,
-  data: {}
+  data: null
 };
 
 export function docDetails(state = initialState, action) {
@@ -27,7 +27,7 @@ export function docDetails(state = initialState, action) {
 
 let initialDocMenuState = {
   isLoading: true,
-  data: {}
+  data: []
 };
 
 export function docMenu(state = initialDocMenuState, action) {
