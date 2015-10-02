@@ -27,7 +27,7 @@ class Doc extends WebAPI {
    */
   searchDocs = (query) => {
     console.log('service: searchDocs query:', query);
-    return new Promise((resolve, reject)) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve([{
           guide: 'the is guide',
@@ -46,16 +46,12 @@ class Doc extends WebAPI {
    */
   loadDocCatalogs = (query) => {
     console.log('service: loadDocCatalogs query:', query);
-    return new Promise((resolve, reject)) => {
-      setTimeout(() => {
-        resolve([{
-          guide: 'the is guide',
-          code: 'this is coce'
-        }, {
-          guide: 'the is guide',
-          code: 'this is coce'
-        }]);
-      }, query.timeout || 0);
+    return axios.get(this.getApiUrl('/api/docs/react/dockmenus'), {
+      params: query
+    }).then(function (result) {
+      return result.data;
+    }).catch(function (err) {
+      return err;
     });
   }
 }

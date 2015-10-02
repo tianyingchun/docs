@@ -25,6 +25,32 @@ export function docDetails(state = initialState, action) {
   }
 };
 
+let initialDocMenuState = {
+  isLoading: true,
+  data: {}
+};
+
+export function docMenu(state = initialDocMenuState, action) {
+  switch (action.type) {
+    // loaded doc catalog for react.
+    case DocActionTypes.LOAD_DOC_CATALOGS:
+      return Object.assign({}, initialDocMenuState, {
+        isLoading: false,
+        data: action.payload
+      });
+    case resolve(DocActionTypes.SHOW_DOC_DETAIL):
+    case reject(DocActionTypes.SHOW_DOC_DETAIL):
+      return Object.assign({}, initialDocMenuState, {
+        isLoading: false,
+        data: action.payload
+      });
+
+    default:
+      return state;
+  }
+};
+
+
 let searchResultState = {
   isLoading: false,
   data: []

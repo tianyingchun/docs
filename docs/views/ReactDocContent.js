@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import ScrollArea from '../../shared/react/components/scrollarea';
 import { Layout, LayoutSplitter } from '../../shared/react/components/layout';
 import DocMenu from '../components/DocMenu';
-
-import Demo from '../../shared/react/components/demo';
+import Demo from '../components/Demo';
+import DemoList from '../../shared/react/components/demo';
 
 const {
   DraggableDemo,
   ButtonDemo,
+  TableDemo,
   LayoutDemo,
   ScrollAreaDemo,
   MenuDemo,
@@ -15,11 +16,12 @@ const {
   MessageDemo,
   TagDemo,
   SelectDemo
-} = Demo;
+} = DemoList;
 
+console.log('ReactDocContent ->demos: ', DemoList);
 class ReactDocContent extends Component {
   state = {
-    layoutWidth: 245,
+    layoutWidth: 230,
     layoutHeight: 400,
     layoutWidthFlex: 0,
     layoutHeightFlex: 400
@@ -52,7 +54,9 @@ class ReactDocContent extends Component {
       case 'button':
         example = this.getComponents(<ButtonDemo />);
         break;
-
+      case 'table':
+        example = this.getComponents(<TableDemo />);
+        break;
       case 'draggable':
         example = this.getComponents(<DraggableDemo />);
         break;
@@ -85,6 +89,7 @@ class ReactDocContent extends Component {
           </Layout>
           <LayoutSplitter layoutWidth={11} />
           <Layout layoutWidth='flex'>
+            <Demo.ApiTable />
             {example}
           </Layout>
       </Layout>

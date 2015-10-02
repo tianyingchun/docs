@@ -26,7 +26,7 @@ export function loadDocCatalogs(routerParams) {
   return (dispatch, getState) => {
     return docService.loadDocCatalogs(routerParams)
       .then(function (result) {
-        dispatch(docDetailDto(result));
+        dispatch(docCatalogsDto(result));
       });
   };
 };
@@ -34,7 +34,7 @@ export function loadDocCatalogs(routerParams) {
 export function searchDocs(routerParams) {
   console.log('action.searchDocs router params: ', routerParams)
   return {
-    type: DocActionTypes.SEARCH_DOCS,
+    type: DocActionTypes.LOAD_DOC_CATALOGS,
     payload: {
       promise: docService.searchDocs(routerParams)
     }

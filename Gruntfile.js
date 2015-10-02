@@ -12,6 +12,20 @@ module.exports = function (grunt) {
       ]
     },
     nodemon: {
+      api: {
+        script: './bin/api',
+        options: {
+          ignore: ['node_modules/**'],
+          env: {
+            PORT: '5000',
+            // for development, isomorphic server render react
+            NODE_ENV: '',
+            DEBUG: 'iso:*,',
+            DEBUG_COLORS: true
+          },
+          ext: 'js,jsx,html,ejs'
+        }
+      },
       isomorphic: {
         script: './bin/isomorphic',
         options: {
@@ -50,7 +64,7 @@ module.exports = function (grunt) {
   require('./buildtool')(grunt);
 
   grunt.registerTask('server', ['nodemon:server']);
-
+  grunt.registerTask('api', ['nodemon:api']);
   grunt.registerTask('isomorphic', ['nodemon:isomorphic']);
 
 };
