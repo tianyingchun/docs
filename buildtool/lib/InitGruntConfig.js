@@ -55,13 +55,16 @@ var getWebpackConfig = function (grunt, mode, projects) {
     var oExtractTextPlugin = _.find(webpack.plugins, function (item) {
       return 'ExtractTextPlugin' === item.constructor.name;
     });
-    var oCommonsChunkPlugin = _.find(webpack.plugins, function (item) {
+    var oCommonsChunkPlugins = _.filter(webpack.plugins, function (item) {
       return 'CommonsChunkPlugin' === item.constructor.name;
     });
 
-    oCommonsChunkPlugin.filenameTemplate = _.template(oCommonsChunkPlugin.filenameTemplate)({
-      projectName: projectName
+    _.each(oCommonsChunkPlugins, function (chunkItem) {
+      chunkItem.filenameTemplate = _.template(chunkItem.filenameTemplate)({
+        projectName: projectName
+      });
     });
+
     // console.log('dddd:', oCommonsChunkPlugin);
 
     var oModuleUrlLoader = _.find(webpack.module.loaders, function (item) {

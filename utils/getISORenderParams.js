@@ -47,6 +47,10 @@ const getRenderParams = (req, env) => {
         _project.projectName = projectName;
         // sub project name.
         _project.subProjectName = subProjectName;
+
+        // the project meta info.
+        _project.metaInfo = project._metaInfo || {};
+
         return false;
       }
     });
@@ -59,7 +63,7 @@ const getRenderParams = (req, env) => {
   });
 
   if (_.isObject(fundProject)) {
-    let version = fundProject.version || '';
+    let version = fundProject.metaInfo.version || '';
 
     // generate all css bundle files.
     _.each(fundProject.cssBundles || [], function (css) {

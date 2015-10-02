@@ -31,16 +31,16 @@ module.exports = {
     // if we have some submodule in projecet (multi) page, we need to attach submodule
     // into this project as multi entry points.
     docs: {
-      // the project meta config.
+      // the project meta config
       _metaInfo: {
-        version: ''
+        version: '?20151001'
       },
       home: {
         match: /^\/(docs\/|docs)?$/,
         // entry point, must be string.
         entry: './docs/app/home/index.js',
         routes: './docs/app/home/routes.js',
-        jsBundles: ['browser-polyfill.js', 'docs/common.js', 'docs/home/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'docs/reactlib.js${version}', 'docs/common.js${version}', 'docs/home/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/home/bundle.css${version}']
       },
       // ${subModule}, it contains multi module in business domain.
@@ -50,7 +50,7 @@ module.exports = {
         // entry point, must be string.
         entry: './docs/app/react/index.js',
         routes: './docs/app/react/routes.js',
-        jsBundles: ['browser-polyfill.js', 'docs/common.js', 'docs/react/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'docs/reactlib.js${version}', 'docs/common.js${version}', 'docs/react/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/react/bundle.css${version}']
       },
       less: {
@@ -59,7 +59,7 @@ module.exports = {
         // entry point, must be string.
         entry: './docs/app/less/index.js',
         routes: './docs/app/less/routes.js',
-        jsBundles: ['browser-polyfill.js', 'docs/common.js', 'docs/less/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'docs/reactlib.js${version}', 'docs/common.js${version}', 'docs/less/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/less/bundle.css${version}']
       }
     }
