@@ -7,8 +7,6 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = function baseConfig() {
   return {
     entry: {
-      // maybe sometimes we need to optimaze code reuse feature for multip SPA sub project.
-      common: ['rc-menu', 'velocity-animate'],
       // for convenience, we should always define libaray as react-kits entry.
       library: ['react', 'react-dom', 'react-router', 'redux', 'react-redux', 'redux-logger', 'wurl', 'redux-simple-promise', 'axios']
       // customized module entry definitions.
@@ -32,16 +30,9 @@ module.exports = function baseConfig() {
       new webpack.optimize.DedupePlugin(), //Note. don't know if there are some problem maybe.
       new ExtractTextPlugin("${projectName}/[name]/bundle.css${version}", { allChunks: true }),
       new webpack.optimize.CommonsChunkPlugin({
-        // Note. the order is important, put common before libaray.
-        names: ['common', 'library'],
-        filename: 'reactkits.js',
-        minChunks: Infinity
-      }),
-      new webpack.optimize.CommonsChunkPlugin({
-        // seperate `common` as child chunk from above library.
-        name: 'common',
-        children: true,
-        filename: 'common.js',
+        // compile react vendors to reactkits.js
+        name:'library',
+        filename: '${projectName}/common.js',
         minChunks: Infinity
       })
     ],

@@ -23,30 +23,34 @@ module.exports = {
         name: '${projectName}/[path][name].[ext]'
       },
       dev: 'http://localhost:3000/public/',
-      prod: 'http://cdn.yingchun.com/public/'
+      prod: 'http://localhost:4000/public/'
     }
   },
   projects: {
-    // ${projectName}, project layers
+    // ${projectName}, project layers, Note for webpack optimze suggestion,
+    // if we have some submodule in projecet (multi) page, we need to attach submodule
+    // into this project as multi entry points.
     docs: {
+      // the project meta config.
+      _metaInfo: {
+        version: ''
+      },
       home: {
         match: /^\/(docs\/|docs)?$/,
         // entry point, must be string.
         entry: './docs/app/home/index.js',
         routes: './docs/app/home/routes.js',
-        version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js','common.js', 'docs/home/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'docs/common.js', 'docs/home/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/home/bundle.css${version}']
       },
-      // ${subProjectName}, it contains multi module in business domain.
+      // ${subModule}, it contains multi module in business domain.
       react: {
         // server rendering url matching.
         match: /^\/docs\/react(\/)?/,
         // entry point, must be string.
         entry: './docs/app/react/index.js',
         routes: './docs/app/react/routes.js',
-        version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'common.js', 'docs/react/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'docs/common.js', 'docs/react/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/react/bundle.css${version}']
       },
       less: {
@@ -55,8 +59,7 @@ module.exports = {
         // entry point, must be string.
         entry: './docs/app/less/index.js',
         routes: './docs/app/less/routes.js',
-        version: '',
-        jsBundles: ['browser-polyfill.js', 'reactkits.js', 'common.js', 'docs/less/bundle.js${version}'],
+        jsBundles: ['browser-polyfill.js', 'docs/common.js', 'docs/less/bundle.js${version}'],
         cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/less/bundle.css${version}']
       }
     }

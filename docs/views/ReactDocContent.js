@@ -16,7 +16,6 @@ const {
   SelectDemo
 } = Demo;
 
-console.log(Demo)
 class ReactDocContent extends Component {
   state = {
     layoutWidth: 245,
