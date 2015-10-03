@@ -21,6 +21,7 @@ let docCatalogsDto = (docCatalogs) => {
   }
 };
 
+// thunkMiddleware
 export function loadDocCatalogs(routerParams) {
   console.log('action.loadDocCatalogs router params: ', routerParams)
   return (dispatch, getState) => {
@@ -40,14 +41,13 @@ export function searchDocs(routerParams) {
     }
   }
 };
-
-// thunkMiddleware
+// promiseMiddleware.
 export function loadDocDetail(routerParams) {
   console.log('action.loadDocDetail router params: ', routerParams)
-  return (dispatch, getState) => {
-    return docService.loadDocDetail(routerParams)
-      .then(function (result) {
-        dispatch(docCatalogsDto(result));
-      });
-  };
+  return {
+    type: DocActionTypes.SHOW_DOC_DETAIL,
+    payload: {
+      promise: docService.loadDocDetail(routerParams)
+    }
+  }
 };

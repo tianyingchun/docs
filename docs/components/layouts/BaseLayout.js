@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
-import { Layout, LayoutSplitter } from '../../../shared/react/components/layout';
+import UI from '../../../shared/react';
 import Header from '../header/Header';
 import meta from './meta';
+const { Layout, LayoutSplitter } = UI.Layout;
 
 // import doc styles for all sub modules.
 if (process.env.BROWSER) {
@@ -25,7 +26,7 @@ class BaseLayout extends Component {
       <div className="wrapper">
         <DocumentMeta {...this.props.meta || meta} />
         <Layout fill='window' className="doc-page">
-          <Layout layoutHeight={50} style={{overflow:'initial'}}>
+          <Layout layoutHeight={50} className= "layout-topnav">
             { Header }
           </Layout>
           <Layout layoutHeight='flex' className="page-body container">

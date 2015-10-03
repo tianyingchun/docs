@@ -10,13 +10,12 @@ class Doc extends WebAPI {
    */
   loadDocDetail = (query) => {
     console.log('service: loadDocDetail query:', query);
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({
-          guide: 'the is guide',
-          code: 'this is coce'
-        });
-      }, query.timeout || 0);
+    return axios.get(this.getApiUrl('/api/docs/react/guideinfo'), {
+      params: query
+    }).then(function (result) {
+      return result.data;
+    }).catch(function (err) {
+      return err;
     });
   }
 

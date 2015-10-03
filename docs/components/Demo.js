@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Table from '../../shared/react/components/table';
+import UI, { Table } from '../../shared/react';
 
 class Demo extends Component {
 

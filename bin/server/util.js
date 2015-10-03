@@ -3,8 +3,20 @@ var Q = require('q');
 var fs = require('fs-extra');
 var fsp = require('fs-promise');
 var _ = require('lodash');
-var md = require("markdown").markdown;
+var marked = require("marked");
 var debug = require('debug')('iso:apiUtil');
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false
+});
+
 /**
  * Loop all first child file or directoy info
  * @param  {string} dir directory path
@@ -37,7 +49,7 @@ function parseMarkDown(component) {
       if (path.extname(demoMdPath).toLowerCase() === ".md") {
         debug('demoMdPath: %s', demoMdPath);
         var fileContent = fs.readFileSync(demoMdPath, 'utf-8');
-        result.push(md.toHTML(fileContent));
+        result.push(marked(fileContent));
       }
     });
     return result;

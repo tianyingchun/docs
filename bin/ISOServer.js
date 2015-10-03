@@ -17,7 +17,7 @@ import { minify } from 'html-minifier';
 
 const app = express();
 const NODE_ENV = app.get('env') || 'production';
-const port = process.env.PORT || 40000;
+const port = process.env.PORT || 20000;
 const profiler = new execTime('[ISO]', NODE_ENV === 'development', 'ms');
 
 // compress all requests

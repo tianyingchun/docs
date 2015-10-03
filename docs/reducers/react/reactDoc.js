@@ -3,19 +3,21 @@ import { resolve, reject } from 'redux-simple-promise';
 
 let initialState = {
   isLoading: false,
+  component: '',
   data: null
 };
 
-export function docDetails(state = initialState, action) {
+// used to simplePromiseMiddleWare.
+export function docDetail(state = initialState, action) {
   switch (action.type) {
     case DocActionTypes.SHOW_DOC_DETAIL:
       return Object.assign({}, initialState, {
-        isLoading: true
+        isLoading: true,
       });
 
     case resolve(DocActionTypes.SHOW_DOC_DETAIL):
     case reject(DocActionTypes.SHOW_DOC_DETAIL):
-      return Object.assign({}, initialState, {
+      return Object.assign({}, {
         isLoading: false,
         data: action.payload
       });
@@ -34,13 +36,7 @@ export function docMenu(state = initialDocMenuState, action) {
   switch (action.type) {
     // loaded doc catalog for react.
     case DocActionTypes.LOAD_DOC_CATALOGS:
-      return Object.assign({}, initialDocMenuState, {
-        isLoading: false,
-        data: action.payload
-      });
-    case resolve(DocActionTypes.SHOW_DOC_DETAIL):
-    case reject(DocActionTypes.SHOW_DOC_DETAIL):
-      return Object.assign({}, initialDocMenuState, {
+      return Object.assign({}, {
         isLoading: false,
         data: action.payload
       });

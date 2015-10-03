@@ -21,7 +21,7 @@ const RouteLink = React.createClass({
   render () {
     // Note there is an bug in ie <=11, this.history is undefined.
     // the mixin has some problem in windows <IE10 use ES5 instead.
-    let { to, match } = this.props;
+    let { to, match, refresh } = this.props;
     let isActive;
     let currentURL = window.location.href;
     let currentHash = currentURL.replace(URI.getUrl(), '/');
@@ -34,12 +34,15 @@ const RouteLink = React.createClass({
     }
 
     let className = isActive ? 'active' : '';
-
-    return (
-      this.props.refresh === true
-      ? <li className={className}><a href= {this.props.to}>{this.props.children}</a></li>
-      : <li className={className}><Link {...this.props} activeClassName={null} /></li>
-    );
+    if (refresh === true) {
+      if(className) {
+        return (<li className={className}><a>{this.props.children}</a></li>);
+      } else {
+        return (<li className={className}><a href= {this.props.to}>{this.props.children}</a></li>);
+      }
+    } else {
+      return (<li className={className}><Link {...this.props} activeClassName={null} /></li>);
+    }
   }
 });
 

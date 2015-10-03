@@ -21,9 +21,7 @@ function readReactManifest() {
 
 // get all menus
 app.get('/api/docs/react/dockmenus', function (req, res, next) {
-  setTimeout(function () {
-    res.send(readReactManifest());
-  }, 3000);
+  res.send(readReactManifest());
 });
 
 // get guide detail info.

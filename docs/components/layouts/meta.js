@@ -1,6 +1,6 @@
 // default meta.
 const meta = {
-  title: 'the docs of react ui components',
+  title: 'The React, Less Docs',
   description: 'show user documents for react ui components',
   canonical: 'http://yingchun.com/docs',
   meta: {

@@ -1,6 +1,6 @@
 export default function fetchComponentData(dispatch, components, params) {
   const needs = components.reduce( (prev, current) => {
-    console.log(current)
+    // console.log(current)
     // if we attached @connect to component class the component will be wrapped in connectorDecorator
     if(current && current.name === 'ConnectorDecorator') {
       current = current.DecoratedComponent;

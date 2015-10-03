@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Menu, { SubMenu } from '../../../shared/react/components/menu';
+import UI, { Menu, Icon } from '../../../shared/react';
 import URI from '../../../utils/URI';
+const SubMenu = Menu.SubMenu;
 
 class ThemeSelector extends Component {
   state = {

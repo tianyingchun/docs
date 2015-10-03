@@ -1,5 +1,6 @@
 import React from 'react';
-import { Layout, LayoutSplitter } from '../../shared/react/components/layout';
+import UI from '../../shared/react';
+const { Layout, LayoutSplitter } = UI.Layout;
 
 class LessDocContent extends React.Component {
   render () {
