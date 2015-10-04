@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
-import UI from '../../../shared/react';
 import Header from '../header/Header';
 import meta from './meta';
-const { Layout, LayoutSplitter } = UI.Layout;
+import layout from '../../../shared/react/components/layout';
+const { Layout, LayoutSplitter } = layout;
 
 // import doc styles for all sub modules.
 if (process.env.BROWSER) {

@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import homeDocsReducer from './home';
 import lessDocsReducer from './less';
 import reactDocsReducer from './react';
+import MobileDocsReducer from './mobile';
 
 export default function findReducers(moduleName) {
   if (!moduleName) {
@@ -14,6 +15,9 @@ export default function findReducers(moduleName) {
       return lessDocsReducer;
     case 'react':
       return reactDocsReducer;
+    case 'mobile':
+      return MobileDocsReducer;
+
     default:
       throw new Error(`can not find '${moduleName}' final reducers`);
   }

@@ -16,6 +16,7 @@ class Header extends Component {
         <ul className="nav nav-pills topbar-nav">
           <RouteLink refresh={true} match="/docs/less/*" to="/docs/less" activeClassName="active">LESS UI</RouteLink>
           <RouteLink refresh={true} match="/docs/react/*" to="/docs/react/layout/flexlayout" activeClassName="active">React UI</RouteLink>
+          <RouteLink refresh={true} match="/docs/mobile/*" to="/docs/mobile" activeClassName="active">React Mobile</RouteLink>
         </ul>
         <div className="topbar-right">
          <ThemeSelector />

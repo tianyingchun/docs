@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import UI, { Menu, Icon } from '../../../shared/react';
+import Menu from '../../../shared/react/components/menu';
+import Icon from '../../../shared/react/components/icon';
 import URI from '../../../utils/URI';
 const SubMenu = Menu.SubMenu;
 

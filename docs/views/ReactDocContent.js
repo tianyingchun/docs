@@ -4,7 +4,7 @@ import * as DocActions from '../actions/DocActions';
 import DocMenu from '../components/DocMenu';
 import DemoList from '../../shared/react/components/demo';
 const { Layout, LayoutSplitter } = UI.Layout;
-const { ScrollArea, Icon } = UI;
+const { ScrollArea, IScroll, Icon } = UI;
 
 const {
   DraggableDemo,
@@ -20,7 +20,8 @@ const {
   SelectDemo,
   DropdownDemo,
   PopconfirmDemo,
-  AlertDemo
+  AlertDemo,
+  IScrollDemo
 } = DemoList;
 
 console.log('ReactDocContent ->demos: ', DemoList);
@@ -34,7 +35,7 @@ class ReactDocContent extends Component {
     // here cause of we used ScrollArea nested into Layout component,
     // we should not speficied the width and height for `ScrollArea`.
     return (
-      <ScrollArea speed={0.8} ref="flexContainer" amSize={'sm'} contentClassName="content">
+      <ScrollArea ref="leftContainer" speed={0.8} amSize={'sm'} contentClassName="content">
         <div className="container">{child}</div>
       </ScrollArea>
     );
@@ -55,6 +56,10 @@ class ReactDocContent extends Component {
       case 'scrollarea':
         example = <ScrollAreaDemo />;
         break;
+      case 'iscroll':
+       example = <IScrollDemo />
+       break;
+
       case 'button':
         example = this.getComponents(<ButtonDemo />);
         break;
