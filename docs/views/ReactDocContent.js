@@ -19,7 +19,8 @@ const {
   TagDemo,
   SelectDemo,
   DropdownDemo,
-  PopconfirmDemo
+  PopconfirmDemo,
+  AlertDemo
 } = DemoList;
 
 console.log('ReactDocContent ->demos: ', DemoList);
@@ -89,7 +90,10 @@ class ReactDocContent extends Component {
         break;
       case 'popconfirm':
        example = this.getComponents (<PopconfirmDemo />);
-       break;
+        break;
+      case 'alert':
+        example = this.getComponents (<AlertDemo />);
+        break;
     }
     return (
       <Layout className="row" fill='container'>

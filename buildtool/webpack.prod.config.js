@@ -15,6 +15,8 @@ module.exports = function () {
       //   require("./style.css");
       // }
       'process.env.BROWSER': JSON.stringify(true),
+      // the widget theme.
+      'THEME': JSON.stringify('') // .red | .blue | .other
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: false,
