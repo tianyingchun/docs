@@ -88,7 +88,7 @@ class DockMenu extends Component {
     const SubMenu = Menu.SubMenu;
 
     return (
-      <Menu onClick={this.handleClick} style={{width:'100%'}} defaultOpenKeys={openKeys} className="nav-left-dock " selectedKeys={selectedKeys} mode="inline">
+      <Menu inlineIndent={12} onClick={this.handleClick} style={{width:'100%'}} defaultOpenKeys={openKeys} className="nav-left-dock " selectedKeys={selectedKeys} mode="inline">
         {
           groups.map((group) => {
             return (
