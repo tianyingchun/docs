@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DocumentMeta from 'react-document-meta';
 import Header from '../header/Header';
 import meta from './meta';
+import classNames from 'classnames';
 import layout from '../../../shared/react/components/layout';
 const { Layout, LayoutSplitter } = layout;
 
@@ -21,9 +22,11 @@ class BaseLayout extends Component {
   render () {
 
     let Header = this.props.header || <Header />;
-
+    let classes = {
+      'wrapper': true
+    }
     return (
-      <div className="wrapper">
+      <div className={classNames(classes, this.props.className)}>
         <DocumentMeta {...this.props.meta || meta} />
         <Layout fill='window' className="doc-page">
           <Layout layoutHeight={50} className= "layout-topnav">

@@ -13,8 +13,8 @@ class MobileHeader extends Component {
         </h1>
          <ul className="nav nav-pills topbar-nav">
           <li className="active">
-            <a href="/docs/react" to="/docs">
-              <span className="active">Back </span>
+            <a className="active" href="/docs/react" to="/docs">
+              <span>Back </span>
             </a>
           </li>
         </ul>
@@ -30,7 +30,7 @@ class HomeLayout extends Component {
     });
 
     return (
-      <BaseLayout header={<MobileHeader />} meta={newMeta}>
+      <BaseLayout className="mobile" header={<MobileHeader />} meta={newMeta}>
         {this.props.children}
       </BaseLayout>
     );

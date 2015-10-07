@@ -22,7 +22,7 @@ module.exports = {
         context: '${projectName}/stylesheets',
         name: '${projectName}/[path][name].[ext]'
       },
-      dev: 'http://192.168.36.111:4000/public/',
+      dev: 'http://192.168.36.111:3000/public/',
       prod: 'http://192.168.36.111:4000/public/'
     }
   },
