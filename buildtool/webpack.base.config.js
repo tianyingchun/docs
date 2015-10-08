@@ -10,7 +10,7 @@ module.exports = function baseConfig() {
       // for convenience, we should always define libaray as react-kits entry.
       reactlib: ['react', 'react-dom', 'react-router', 'redux', 'react-redux', 'redux-logger', 'wurl', 'redux-simple-promise', 'axios'],
       // customized module entry definitions.
-      common: ['rc-menu', 'velocity-animate']
+      // common: ['rc-menu', 'velocity-animate']
     },
     module: {
       loaders: [
@@ -32,7 +32,7 @@ module.exports = function baseConfig() {
       new ExtractTextPlugin("${projectName}/[name]/bundle.css${version}", { allChunks: true }),
       new webpack.optimize.CommonsChunkPlugin({
         // compile react vendors to reactkits.js
-        names:['common','reactlib'],
+        names:[/*'common',*/'reactlib'],
         filename: '${projectName}/[name].js',
         minChunks: Infinity
       })

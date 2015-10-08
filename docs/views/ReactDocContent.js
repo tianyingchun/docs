@@ -12,6 +12,7 @@ const {
   TableDemo,
   LayoutDemo,
   ScrollAreaDemo,
+  ScrollbarDemo,
   MenuDemo,
   IconDemo,
   BreadcrumbDemo,
@@ -57,9 +58,11 @@ class ReactDocContent extends Component {
         example = <ScrollAreaDemo />;
         break;
       case 'iscroll':
-       example = <IScrollDemo />
-       break;
-
+        example = <IScrollDemo />
+        break;
+      case 'scrollbar':
+        example = <ScrollbarDemo />
+        break;
       case 'button':
         example = this.getComponents(<ButtonDemo />);
         break;
