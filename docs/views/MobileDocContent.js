@@ -12,6 +12,7 @@ class MobileDocContent extends React.Component {
   }
   render () {
     return (
+      <IScroll>
        <PullToRefresh withInIscroll={true} loadingFunc={this.refreshData}>
           <div className="inner">
             <h2>Lorem ipsum dolor sit amet</h2>
@@ -34,6 +35,7 @@ class MobileDocContent extends React.Component {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id assumenda et fugiat placeat enim quas, voluptas odio aperiam in quibusdam beatae eaque minima. Consequuntur pariatur, doloremque, odit dolorem ullam sunt!</p>
           </div>
         </PullToRefresh>
+      </IScroll>
     );
   }
 }

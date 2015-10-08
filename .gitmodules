@@ -4,3 +4,6 @@
 [submodule "shared/less"]
 	path = shared/less
 	url = https://github.com/tianyingchun/less.git
+[submodule "shared/kissy"]
+	path = shared/kissy
+	url = https://github.com/tianyingchun/kissy.git
