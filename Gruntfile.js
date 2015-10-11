@@ -12,10 +12,12 @@ module.exports = function (grunt) {
       ]
     },
     nodemon: {
+      options: {
+        ignore: ['node_modules/**', 'shared/*/node_modules/**']
+      },
       api: {
         script: './bin/api',
         options: {
-          ignore: ['node_modules/**'],
           env: {
             PORT: '5000',
             // for development, isomorphic server render react
@@ -30,7 +32,6 @@ module.exports = function (grunt) {
         script: './bin/isomorphic',
         options: {
           nodeArgs: [ /*'--debug' */ ],
-          ignore: ['node_modules/**'],
           env: {
             PORT: '2000',
             // for development, isomorphic server render react
@@ -45,7 +46,6 @@ module.exports = function (grunt) {
         script: './bin/simple',
         options: {
           nodeArgs: [ /*'--debug' */ ],
-          ignore: ['node_modules/**'],
           env: {
             PORT: '4000',
             // for development, isomorphic server render react

@@ -5,7 +5,7 @@ import STRING from '../shared/react/utils/string';
 class WebAPI {
   // PATH related utitlites.
   getApiUrl (path, query) {
-    let finalPath = 'http://172.16.233.137:5000';
+    let finalPath = 'http://localhost:5000';
     finalPath = STRING.stringFormat('{0}{1}', finalPath, PATH.normalizePath(path));
     if (query) {
       let queryPath = [];

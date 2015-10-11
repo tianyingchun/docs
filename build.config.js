@@ -7,9 +7,9 @@ module.exports = {
     projectRoot: './',
 
     devServer: {
-      host: '172.16.233.137',
+      host: 'localhost',
       port: 3000,
-      publicPath: 'http://172.16.233.137:3000/public/'
+      publicPath: 'http://localhost:3000/public/'
     },
     built: {
       // where the built files should be placed?
@@ -22,8 +22,8 @@ module.exports = {
         context: '${projectName}/stylesheets',
         name: '${projectName}/[path][name].[ext]'
       },
-      dev: 'http://172.16.233.137:3000/public/',
-      prod: 'http://172.16.233.137:4000/public/'
+      dev: 'http://localhost:3000/public/',
+      prod: 'http://localhost:4000/public/'
     }
   },
   projects: {
@@ -41,7 +41,7 @@ module.exports = {
         entry: './docs/app/home/index.js',
         routes: './docs/app/home/routes.js',
         jsBundles: ['browser-polyfill.js', 'docs/reactlib.js${version}', 'docs/home/bundle.js${version}'],
-        cssBundles: ['http://172.16.233.137:2000/shared/less/public/common.css','docs/home/bundle.css${version}']
+        cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/home/bundle.css${version}']
       },
       // ${subModule}, it contains multi module in business domain.
       react: {
@@ -51,7 +51,7 @@ module.exports = {
         entry: './docs/app/react/index.js',
         routes: './docs/app/react/routes.js',
         jsBundles: ['browser-polyfill.js', 'docs/reactlib.js${version}', 'docs/react/bundle.js${version}'],
-        cssBundles: ['http://172.16.233.137:2000/shared/less/public/common.css','docs/react/bundle.css${version}']
+        cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/react/bundle.css${version}']
       },
       mobile: {
         // server rendering url matching.
@@ -60,7 +60,7 @@ module.exports = {
         entry: './docs/app/mobile/index.js',
         routes: './docs/app/mobile/routes.js',
         jsBundles: ['browser-polyfill.js', 'docs/reactlib.js${version}', 'docs/mobile/bundle.js${version}'],
-        cssBundles: ['http://172.16.233.137:2000/shared/less/public/common.css','docs/mobile/bundle.css${version}']
+        cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/mobile/bundle.css${version}']
       },
       less: {
         // server rendering url matching.
@@ -69,7 +69,7 @@ module.exports = {
         entry: './docs/app/less/index.js',
         routes: './docs/app/less/routes.js',
         jsBundles: ['browser-polyfill.js', 'docs/reactlib.js${version}', 'docs/less/bundle.js${version}'],
-        cssBundles: ['http://172.16.233.137:2000/shared/less/public/common.css','docs/less/bundle.css${version}']
+        cssBundles: ['http://localhost:2000/shared/less/public/common.css','docs/less/bundle.css${version}']
       }
     }
   }
