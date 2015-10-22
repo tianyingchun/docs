@@ -44,7 +44,7 @@ class ThemeSelector extends Component {
     let link = '/shared/less/public/common.css';
     switch (theme) {
       case 'glodonyun':
-        link = '/shared/less/public/themes/glodon-yun/common.css';
+        link = '/shared/less/public/themes/jr-pc/common.css';
         break;
     }
     return URI.getUrl(link);
